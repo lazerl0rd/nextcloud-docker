@@ -93,6 +93,7 @@ RUN curl -fsSL -o nextcloud.tar.bz2 \
 # Configure PHP
 RUN { \
 		echo 'opcache.enable=1'; \
+		echo 'opcache.huge_code_pages=1'; \
 		echo 'opcache.interned_strings_buffer=16'; \
 		echo 'opcache.max_accelerated_files=10000'; \
 		echo 'opcache.memory_consumption=128'; \
