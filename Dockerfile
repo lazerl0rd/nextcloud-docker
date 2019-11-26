@@ -99,7 +99,11 @@ RUN { \
 		echo 'opcache.revalidate_freq=1'; \
 		echo 'opcache.save_comments=1'; } > /usr/local/etc/php/conf.d/opcache-recommended.ini; \
 	echo 'apc.enable_cli=1' >> /usr/local/etc/php/conf.d/docker-php-ext-apcu.ini; \
-	echo 'memory_limit=512M' > /usr/local/etc/php/conf.d/memory-limit.ini
+	echo 'memory_limit=512M' > /usr/local/etc/php/conf.d/memory-limit.ini; \
+	sed -i 's/pm\.max_children.*/pm.max_children = 60/' /usr/local/etc/php-fpm.d/www.conf; \
+	sed -i 's/pm\.max_spare_server.*/pm.max_spare_servers = 8/' /usr/local/etc/php-fpm.d/www.conf; \
+	sed -i 's/pm\.min_spare_server.*/pm.min_spare_servers = 3/' /usr/local/etc/php-fpm.d/www.conf; \
+	sed -i 's/pm\.start_servers.*/pm.start_servers = 6/' /usr/local/etc/php-fpm.d/www.conf
 
 # Manage directories/files
 RUN mkdir -p \
