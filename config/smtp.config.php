@@ -1,7 +1,7 @@
 <?php
 
 if (getenv('SMTP_HOST') && getenv('MAIL_FROM_ADDRESS') && getenv('MAIL_DOMAIN')) {
-	$CONFIG = array (
+	$CONFIG = array(
 		'mail_smtpmode' => 'smtp',
 		'mail_smtphost' => getenv('SMTP_HOST'),
 		'mail_smtpport' => getenv('SMTP_PORT') ?: (getenv('SMTP_SECURE') ? 465 : 25),

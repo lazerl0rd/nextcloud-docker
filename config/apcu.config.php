@@ -1,5 +1,5 @@
 <?php
 
-$CONFIG = array (
+$CONFIG = array(
 	"memcache.local" => "\OC\Memcache\APCu",
 );
