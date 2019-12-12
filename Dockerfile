@@ -105,7 +105,12 @@ RUN { \
 	echo 'pm.max_children = 60'; \
 	echo 'pm.max_spare_servers = 8'; \
 	echo 'pm.min_spare_servers = 3'; \
-	echo 'pm.start_servers = 6'; } > /usr/local/etc/php-fpm.d/processes.ini
+	echo 'pm.start_servers = 6'; } > /usr/local/etc/php-fpm.d/processes.ini ; \
+	{ \
+	echo 'upload_max_filesize = 10G'; \
+	echo 'post_max_size = 10G'; \
+	echo 'max_input_time = 3600'; \
+	echo 'max_execution_time = 3600'; } > /usr/local/etc/php/conf.d/upload-limit.ini
 
 # Manage directories/files
 RUN mkdir -p \
