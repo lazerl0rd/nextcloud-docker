@@ -1,4 +1,4 @@
-FROM php:7.3-fpm-alpine3.10
+FROM php:7.3-fpm-alpine3.11
 
 ENV NEXTCLOUD_UPDATE=1
 ENV NEXTCLOUD_VERSION 17.0.2
