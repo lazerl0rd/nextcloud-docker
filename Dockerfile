@@ -1,10 +1,8 @@
 FROM php:7.3-fpm-alpine3.10
 
-
 ENV NEXTCLOUD_UPDATE=1
-ENV NEXTCLOUD_VERSION 17.0.1
+ENV NEXTCLOUD_VERSION 17.0.2
 VOLUME /var/www/nextcloud
-
 
 # Install necessary and temporary (with a flag) packages
 RUN apk add --no-cache \
@@ -131,7 +129,6 @@ COPY config/* /usr/src/nextcloud/config/
 RUN chmod +x /usr/src/nextcloud/occ; \
 	chmod -R g=u /var/www; \
 	chown -R www-data:root /var/www
-
 
 ENTRYPOINT ["/entrypoint.sh"]
 
