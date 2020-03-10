@@ -1,7 +1,7 @@
 FROM php:7.3-fpm-alpine3.11
 
 ENV NEXTCLOUD_UPDATE=1
-ENV NEXTCLOUD_VERSION 17.0.3
+ENV NEXTCLOUD_VERSION 18.0.1
 VOLUME /var/www/nextcloud
 
 # Install necessary and temporary (with a flag) packages
